@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/Admin/AppData/Roaming/Claude/local-agent-mode-sessions/skills-plugin/21b490a6-ec84-4ee3-96ff-a74c854b2245/ee919017-70c4-4ba9-90d2-b83d6b383425/skills/docx/**)",
+      "Bash(pandoc --track-changes=all \"D:\\\\Shared files\\\\Desktop\\\\Brandline\\\\Consultancy\\\\CONSULTANCY AGREEMENT CHILUFYA MUSOSHA.docx\" -o output.md)",
+      "Bash(python \"C:\\\\Users\\\\Admin\\\\AppData\\\\Roaming\\\\Claude\\\\local-agent-mode-sessions\\\\skills-plugin\\\\21b490a6-ec84-4ee3-96ff-a74c854b2245\\\\ee919017-70c4-4ba9-90d2-b83d6b383425\\\\skills\\\\docx\\\\scripts\\\\office\\\\unpack.py\" \"D:\\\\Shared files\\\\Desktop\\\\Brandline\\\\Consultancy\\\\CONSULTANCY AGREEMENT CHILUFYA MUSOSHA.docx\" \"C:\\\\Users\\\\Admin\\\\AppData\\\\Roaming\\\\Claude\\\\local-agent-mode-sessions\\\\skills-plugin\\\\21b490a6-ec84-4ee3-96ff-a74c854b2245\\\\ee919017-70c4-4ba9-90d2-b83d6b383425\\\\skills\\\\docx\\\\unpacked\")",
+      "Bash(python -c ':*)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(gh auth:*)"
+    ]
+  }
+}

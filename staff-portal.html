@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Staff Portal — Serenje Wellness Home</title>
+  <style>
+    :root {
+      --green:      #2d6a4f;
+      --green-mid:  #40916c;
+      --green-lite: #95d5b2;
+      --cream:      #f8f5f0;
+      --gold:       #c9a84c;
+      --text:       #1e1e1e;
+      --muted:      #6b7280;
+      --white:      #ffffff;
+      --card-bg:    #ffffff;
+      --border:     #e5e7eb;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── TOP BAR ── */
+    .topbar {
+      background: var(--green);
+      color: var(--white);
+      font-size: 0.78rem;
+      padding: 6px 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .topbar a { color: var(--green-lite); text-decoration: none; }
+    .topbar a:hover { text-decoration: underline; }
+
+    /* ── HEADER ── */
+    header {
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-mid) 100%);
+      color: var(--white);
+      padding: 2.5rem 2rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .logo-circle {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      border: 2px solid var(--green-lite);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      flex-shrink: 0;
+    }
+    header h1 { font-size: 1.8rem; font-weight: 700; letter-spacing: -0.5px; }
+    header p  { font-size: 0.9rem; color: var(--green-lite); margin-top: 4px; }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+    }
+    nav a {
+      display: inline-block;
+      padding: 0.9rem 1.2rem;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 3px solid transparent;
+      white-space: nowrap;
+      transition: all .2s;
+    }
+    nav a:hover, nav a.active {
+      color: var(--green);
+      border-bottom-color: var(--green);
+    }
+
+    /* ── MAIN LAYOUT ── */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 1.5rem;
+    }
+    @media (max-width: 900px) {
+      main { grid-template-columns: 1fr; }
+    }
+
+    /* ── WELCOME BANNER ── */
+    .welcome-banner {
+      grid-column: 1 / -1;
+      background: linear-gradient(120deg, var(--green-mid), var(--green));
+      color: var(--white);
+      border-radius: 12px;
+      padding: 1.6rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+    .welcome-banner h2 { font-size: 1.3rem; font-weight: 600; }
+    .welcome-banner p  { font-size: 0.9rem; color: var(--green-lite); margin-top: 4px; }
+    .badge {
+      background: var(--gold);
+      color: #fff;
+      border-radius: 8px;
+      padding: 0.5rem 1.1rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      white-space: nowrap;
+      letter-spacing: 0.3px;
+    }
+
+    /* ── SECTION TITLE ── */
+    .section-title {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+    }
+    .card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--green);
+      margin-bottom: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* ── QUICK LINKS ── */
+    .quick-links {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+    }
+    .quick-link {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.85rem 1rem;
+      border-radius: 8px;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: all .2s;
+    }
+    .quick-link:hover {
+      background: #e8f5ee;
+      border-color: var(--green-lite);
+      color: var(--green);
+    }
+    .quick-link .icon {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: var(--green);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    /* ── ANNOUNCEMENTS ── */
+    .announcement-item {
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 0.75rem;
+    }
+    .announcement-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 5px;
+    }
+    .dot.green  { background: var(--green-mid); }
+    .dot.gold   { background: var(--gold); }
+    .dot.blue   { background: #3b82f6; }
+    .ann-title  { font-size: 0.88rem; font-weight: 600; }
+    .ann-meta   { font-size: 0.77rem; color: var(--muted); margin-top: 2px; }
+
+    /* ── SCHEDULE TABLE ── */
+    .schedule-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
+    .schedule-table th {
+      text-align: left;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 0 0 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .schedule-table td {
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    .schedule-table tr:last-child td { border-bottom: none; }
+    .shift-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 20px;
+      font-size: 0.74rem;
+      font-weight: 600;
+    }
+    .shift-morning  { background: #fef9c3; color: #854d0e; }
+    .shift-evening  { background: #e0e7ff; color: #3730a3; }
+    .shift-night    { background: #f3e8ff; color: #6b21a8; }
+
+    /* ── SIDEBAR ── */
+    .sidebar { display: flex; flex-direction: column; gap: 1.25rem; }
+
+    /* ── CONTACTS ── */
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .contact-item:last-child { border-bottom: none; }
+    .avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--green);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .contact-name  { font-size: 0.88rem; font-weight: 600; }
+    .contact-role  { font-size: 0.76rem; color: var(--muted); }
+
+    /* ── WELLNESS TIP ── */
+    .tip-card {
+      background: linear-gradient(135deg, #e8f5ee, #d1fae5);
+      border: 1px solid var(--green-lite);
+      border-radius: 12px;
+      padding: 1.2rem 1.4rem;
+      text-align: center;
+    }
+    .tip-card .tip-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+    .tip-card h4 { font-size: 0.85rem; font-weight: 700; color: var(--green); margin-bottom: 0.4rem; }
+    .tip-card p  { font-size: 0.82rem; color: #374151; line-height: 1.5; }
+
+    /* ── STATS ROW ── */
+    .stats-row {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+    @media (max-width: 700px) { .stats-row { grid-template-columns: repeat(2, 1fr); } }
+    .stat-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.2rem 1.4rem;
+    }
+    .stat-card .stat-num {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--green);
+      line-height: 1;
+    }
+    .stat-card .stat-label {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <span>Serenje Wellness Home &mdash; Internal Staff Portal</span>
+    <span>Today: <strong id="today-date"></strong> &nbsp;|&nbsp; <a href="#">IT Support</a> &nbsp;|&nbsp; <a href="#">HR Help Desk</a></span>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo-circle">&#127807;</div>
+    <div>
+      <h1>Serenje Wellness Home</h1>
+      <p>Staff Portal &mdash; Welcome back. You make a difference every day.</p>
+    </div>
+  </header>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="active">Home</a>
+    <a href="#">My Schedule</a>
+    <a href="#">Residents</a>
+    <a href="#">Reports</a>
+    <a href="#">Training</a>
+    <a href="#">Policies</a>
+    <a href="#">Leave Requests</a>
+    <a href="#">IT & Systems</a>
+  </nav>
+
+  <!-- MAIN -->
+  <main>
+
+    <!-- WELCOME BANNER -->
+    <div class="welcome-banner">
+      <div>
+        <h2>Good day, Staff Member &#128075;</h2>
+        <p>Serenje Wellness Home &mdash; Committed to compassionate, dignified care.</p>
+      </div>
+      <div class="badge">April 2026</div>
+    </div>
+
+    <!-- STATS ROW -->
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-num">24</div>
+        <div class="stat-label">Residents Currently Admitted</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">12</div>
+        <div class="stat-label">Staff On Duty Today</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">3</div>
+        <div class="stat-label">New Admissions This Week</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">98%</div>
+        <div class="stat-label">Care Satisfaction Score</div>
+      </div>
+    </div>
+
+    <!-- LEFT COLUMN -->
+    <div style="display:flex; flex-direction:column; gap:1.25rem;">
+
+      <!-- QUICK LINKS -->
+      <div class="card">
+        <h3>&#9889; Quick Access</h3>
+        <div class="quick-links">
+          <a href="#" class="quick-link">
+            <div class="icon">&#128197;</div>Shift Roster
+          </a>
+          <a href="#" class="quick-link">
+            <div class="icon">&#128203;</div>Incident Reports
+          </a>
+          <a href="#" class="quick-link">
+            <div class="icon">&#128138;</div>Medication Log
+          </a>
+          <a href="#" class="quick-link">
+            <div class="icon">&#128176;</div>Payslips
+          </a>
+          <a href="#" class="quick-link">
+            <div class="icon">&#127979;</div>Training Portal
+          </a>
+          <a href="#" class="quick-link">
+            <div class="icon">&#128274;</div>HR Policies
+          </a>
+          <a href="#" class="quick-link">
+            <div class="icon">&#128187;</div>CRM System
+          </a>
+          <a href="#" class="quick-link">
+            <div class="icon">&#128241;</div>IT Support
+          </a>
+        </div>
+      </div>
+
+      <!-- ANNOUNCEMENTS -->
+      <div class="card">
+        <h3>&#128226; Announcements</h3>
+        <div>
+          <div class="announcement-item">
+            <div class="dot green"></div>
+            <div>
+              <div class="ann-title">Q2 Staff Training &mdash; Digital Systems Orientation</div>
+              <div class="ann-meta">9 Apr 2026 &nbsp;&bull;&nbsp; All departments &nbsp;&bull;&nbsp; Mandatory</div>
+            </div>
+          </div>
+          <div class="announcement-item">
+            <div class="dot gold"></div>
+            <div>
+              <div class="ann-title">Updated Medication Administration Policy</div>
+              <div class="ann-meta">7 Apr 2026 &nbsp;&bull;&nbsp; Clinical staff &nbsp;&bull;&nbsp; Please read before next shift</div>
+            </div>
+          </div>
+          <div class="announcement-item">
+            <div class="dot blue"></div>
+            <div>
+              <div class="ann-title">New CRM System Goes Live &mdash; 15 April</div>
+              <div class="ann-meta">5 Apr 2026 &nbsp;&bull;&nbsp; All staff &nbsp;&bull;&nbsp; Training sessions available</div>
+            </div>
+          </div>
+          <div class="announcement-item">
+            <div class="dot green"></div>
+            <div>
+              <div class="ann-title">Public Holiday Notice &mdash; Labour Day, 1 May</div>
+              <div class="ann-meta">3 Apr 2026 &nbsp;&bull;&nbsp; Operations &nbsp;&bull;&nbsp; On-call roster attached</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TODAY'S SCHEDULE -->
+      <div class="card">
+        <h3>&#128336; Today&rsquo;s Shift Overview</h3>
+        <table class="schedule-table">
+          <thead>
+            <tr>
+              <th>Staff Member</th>
+              <th>Role</th>
+              <th>Shift</th>
+              <th>Ward</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>N. Banda</td>
+              <td>Senior Nurse</td>
+              <td><span class="shift-badge shift-morning">Morning</span></td>
+              <td>Ward A</td>
+            </tr>
+            <tr>
+              <td>P. Mwansa</td>
+              <td>Care Assistant</td>
+              <td><span class="shift-badge shift-morning">Morning</span></td>
+              <td>Ward B</td>
+            </tr>
+            <tr>
+              <td>C. Mulenga</td>
+              <td>Physiotherapist</td>
+              <td><span class="shift-badge shift-morning">Morning</span></td>
+              <td>Therapy Room</td>
+            </tr>
+            <tr>
+              <td>M. Lungu</td>
+              <td>Care Assistant</td>
+              <td><span class="shift-badge shift-evening">Evening</span></td>
+              <td>Ward A</td>
+            </tr>
+            <tr>
+              <td>T. Phiri</td>
+              <td>Senior Nurse</td>
+              <td><span class="shift-badge shift-evening">Evening</span></td>
+              <td>Ward B</td>
+            </tr>
+            <tr>
+              <td>J. Sakala</td>
+              <td>Night Supervisor</td>
+              <td><span class="shift-badge shift-night">Night</span></td>
+              <td>All Wards</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+      <!-- WELLNESS TIP -->
+      <div class="tip-card">
+        <div class="tip-icon">&#127807;</div>
+        <h4>Staff Wellness Tip of the Day</h4>
+        <p>Take a 5-minute mindful break between shifts. Your wellbeing matters as much as those in our care.</p>
+      </div>
+
+      <!-- KEY CONTACTS -->
+      <div class="card">
+        <h3>&#128222; Key Contacts</h3>
+        <div class="contact-item">
+          <div class="avatar">SM</div>
+          <div>
+            <div class="contact-name">Centre Manager</div>
+            <div class="contact-role">Operations &amp; Administration</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="avatar">SN</div>
+          <div>
+            <div class="contact-name">Senior Nurse on Duty</div>
+            <div class="contact-role">Clinical Lead</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="avatar">HR</div>
+          <div>
+            <div class="contact-name">HR Officer</div>
+            <div class="contact-role">Staff &amp; Welfare</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="avatar">IT</div>
+          <div>
+            <div class="contact-name">Technology Lead</div>
+            <div class="contact-role">Systems &amp; Digital Support</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RESOURCES -->
+      <div class="card">
+        <div class="section-title">Staff Resources</div>
+        <ul style="list-style:none; display:flex; flex-direction:column; gap:0.6rem;">
+          <li><a href="#" style="color:var(--green); font-size:0.87rem; text-decoration:none;">&#128196; Employee Handbook</a></li>
+          <li><a href="#" style="color:var(--green); font-size:0.87rem; text-decoration:none;">&#128203; Infection Control Guidelines</a></li>
+          <li><a href="#" style="color:var(--green); font-size:0.87rem; text-decoration:none;">&#128218; Care Standards Manual</a></li>
+          <li><a href="#" style="color:var(--green); font-size:0.87rem; text-decoration:none;">&#128721; Emergency Procedures</a></li>
+          <li><a href="#" style="color:var(--green); font-size:0.87rem; text-decoration:none;">&#127891; CPD &amp; Training Schedule</a></li>
+          <li><a href="#" style="color:var(--green); font-size:0.87rem; text-decoration:none;">&#128181; Leave &amp; Payroll Portal</a></li>
+        </ul>
+      </div>
+
+      <!-- EMERGENCY -->
+      <div style="background:#fef2f2; border:1px solid #fecaca; border-radius:12px; padding:1.2rem 1.4rem;">
+        <h3 style="color:#dc2626; font-size:0.95rem; margin-bottom:0.6rem;">&#128680; Emergency Numbers</h3>
+        <div style="font-size:0.84rem; line-height:2;">
+          <div><strong>Ambulance / Emergency:</strong> 991</div>
+          <div><strong>Police:</strong> 991</div>
+          <div><strong>Fire Brigade:</strong> 993</div>
+          <div><strong>Centre Emergency Line:</strong> Ext. 100</div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    &copy; 2026 Serenje Wellness Home &mdash; Powered by eNgoma &nbsp;|&nbsp; Internal Use Only
+  </footer>
+
+  <script>
+    // Set today's date
+    const d = new Date();
+    document.getElementById('today-date').textContent =
+      d.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+  </script>
+
+</body>
+</html>
