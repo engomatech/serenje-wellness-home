@@ -2040,6 +2040,114 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .dc-toast { position: fixed; bottom: 1.5rem; right: 1.5rem; background: #1e40af; color: #fff; padding: 0.6rem 1.1rem; border-radius: 8px; font-size: 0.85rem; font-weight: 600; opacity: 0; transform: translateY(8px); transition: all .25s; pointer-events: none; z-index: 1000; }
 .dc-toast--show { opacity: 1; transform: translateY(0); }
 
+/* ══════════════════════════════════════════════════════════════════════
+   AUTH — Login & Password Change screens
+   ══════════════════════════════════════════════════════════════════════ */
+#auth-overlay {
+  position: fixed; inset: 0; z-index: 9999;
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #2563eb 100%);
+  display: flex; align-items: center; justify-content: center;
+  padding: 1rem;
+}
+
+.auth-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 25px 60px rgba(0,0,0,.25);
+}
+
+.auth-logo {
+  display: flex; align-items: center; gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+.auth-logo-icon { font-size: 2rem; flex-shrink: 0; }
+.auth-logo-name { font-size: 1rem; font-weight: 800; color: var(--text); line-height: 1.2; }
+.auth-logo-sub  { font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
+
+.auth-heading { font-size: 1.15rem; font-weight: 700; color: var(--text); margin-bottom: 1.25rem; }
+.auth-intro   { font-size: 0.85rem; color: var(--muted); line-height: 1.55; margin-bottom: 1.25rem; }
+
+.auth-error {
+  background: #fef2f2; border: 1px solid #fecaca; border-radius: 8px;
+  padding: 0.6rem 0.85rem; font-size: 0.83rem; color: #dc2626;
+  margin-bottom: 1rem;
+}
+
+.auth-form { display: flex; flex-direction: column; gap: 1rem; }
+
+.auth-field { display: flex; flex-direction: column; gap: 0.35rem; }
+.auth-field label { font-size: 0.83rem; font-weight: 600; color: var(--text); }
+.auth-field input {
+  border: 1.5px solid var(--border); border-radius: 8px;
+  padding: 0.6rem 0.85rem; font-size: 0.9rem; font-family: inherit;
+  color: var(--text); background: var(--white); transition: border-color .15s;
+  width: 100%;
+}
+.auth-field input:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(37,99,235,.1); }
+
+.auth-pw-wrap { position: relative; display: flex; }
+.auth-pw-wrap input { padding-right: 2.5rem; flex: 1; }
+.auth-pw-toggle {
+  position: absolute; right: 0.5rem; top: 50%; transform: translateY(-50%);
+  background: none; border: none; cursor: pointer; font-size: 1rem;
+  padding: 0.2rem; opacity: 0.6; transition: opacity .15s;
+}
+.auth-pw-toggle:hover { opacity: 1; }
+
+.auth-pw-rules {
+  font-size: 0.75rem; color: var(--muted); line-height: 1.5;
+  background: #f8faff; border: 1px solid var(--border); border-radius: 7px;
+  padding: 0.5rem 0.75rem;
+}
+
+.auth-submit {
+  background: var(--green); color: #fff;
+  border: none; border-radius: 8px;
+  padding: 0.75rem 1rem; font-size: 0.9rem; font-weight: 700;
+  cursor: pointer; transition: background .15s; margin-top: 0.25rem;
+}
+.auth-submit:hover { background: var(--green-mid); }
+
+/* Staff hint box */
+.auth-staff-hint {
+  margin-top: 1.5rem;
+  background: var(--green-bg); border: 1px solid var(--green-lite);
+  border-radius: 10px; padding: 0.85rem 1rem;
+}
+.auth-staff-hint-title { font-size: 0.78rem; font-weight: 700; color: var(--blue); margin-bottom: 0.5rem; }
+.auth-staff-hint-row {
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 0.83rem; margin-bottom: 0.25rem;
+}
+.auth-staff-hint-row span { color: var(--muted); }
+.auth-staff-hint-row code {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 5px; padding: 1px 8px;
+  font-family: monospace; font-size: 0.85rem; color: var(--text); font-weight: 700;
+}
+.auth-staff-hint-note { font-size: 0.73rem; color: var(--muted); margin-top: 0.4rem; }
+
+/* Topbar — post-login user area */
+.topbar-right { display: flex; align-items: center; gap: 0.75rem; font-size: 0.82rem; color: var(--green-lite); }
+.topbar-username { color: var(--white); font-weight: 600; font-size: 0.83rem; }
+.topbar-role-badge {
+  font-size: 0.68rem; font-weight: 700; padding: 2px 8px;
+  border-radius: 20px; text-transform: uppercase; letter-spacing: .4px;
+}
+.topbar-role--admin { background: rgba(255,255,255,.25); color: #fff; }
+.topbar-role--staff { background: rgba(255,255,255,.15); color: var(--green-lite); }
+.topbar-logout {
+  background: rgba(255,255,255,.12); color: var(--white);
+  border: 1px solid rgba(255,255,255,.2); border-radius: 7px;
+  padding: 0.3rem 0.75rem; font-size: 0.78rem; font-weight: 600;
+  cursor: pointer; transition: background .15s; white-space: nowrap;
+}
+.topbar-logout:hover { background: rgba(255,255,255,.25); }
+.today { font-size: 0.78rem; color: var(--green-lite); }
+
 /* ── SCROLLBAR ── */
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }
