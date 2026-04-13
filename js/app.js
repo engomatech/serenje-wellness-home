@@ -29,6 +29,10 @@ import * as Training       from '../modules/training.js';
 import * as ITSystems      from '../modules/it-systems.js';
 import * as Settings       from '../modules/settings.js';
 
+/* ── FINANCE ───────────────────────────────────────────────────────── */
+import * as Billing        from '../modules/billing.js';
+import { getLowBalanceCount } from '../modules/billing.js';
+
 /* ── OVERVIEW ──────────────────────────────────────────────────────── */
 import * as Dashboard      from '../modules/dashboard.js';
 
@@ -58,6 +62,8 @@ export const MODULES = [
   Training,
   ITSystems,
   Settings,
+  /* Finance */
+  Billing,
 ];
 
 /* ── NAV GROUPS ────────────────────────────────────────────────────── */
@@ -66,6 +72,7 @@ const NAV = [
   { label: 'Clinical Pathway', items: ['intake', 'screening', 'assessment', 'treatment', 'casemanagement', 'discharge'] },
   { label: 'Operations',       items: ['reporting', 'scheduling', 'announcements'] },
   { label: 'Administration',   items: ['hr', 'training', 'itsystems', 'settings'] },
+  { label: 'Finance',          items: ['billing'] },
 ];
 
 /* ══════════════════════════════════════════════════════════════════════
@@ -232,19 +239,42 @@ function showAppShell() {
 function renderTopbarUser(session) {
   const right = document.getElementById('topbar-right');
   if (!right) return;
-  const roleLabel = session.role === 'admin' ? 'Administrator' : 'Staff';
   const roleBadge = session.role === 'admin'
     ? '<span class="topbar-role-badge topbar-role--admin">Admin</span>'
     : '<span class="topbar-role-badge topbar-role--staff">Staff</span>';
+
+  // Billing alert bell — count patients with no deposit or below minimum
+  const alertCount = getLowBalanceCount();
+  const bellBadge  = alertCount > 0
+    ? `<button class="topbar-bell" id="billing-bell-btn" title="${alertCount} patient(s) with insufficient funds">
+         🔔<span class="topbar-bell-badge">${alertCount}</span>
+       </button>`
+    : `<button class="topbar-bell topbar-bell--clear" id="billing-bell-btn" title="All patient accounts OK">
+         🔔
+       </button>`;
+
   right.innerHTML = `
     <span class="today" id="today-label"></span>
+    ${bellBadge}
     ${roleBadge}
     <span class="topbar-username">${session.displayName}</span>
     <button class="topbar-logout" id="logout-btn" title="Sign out">⏻ Sign Out</button>`;
+
   setDate();
+
   document.getElementById('logout-btn').addEventListener('click', () => {
     if (confirm('Sign out of Serenje Wellness Home?')) logout();
   });
+
+  document.getElementById('billing-bell-btn').addEventListener('click', () => {
+    navigate('billing');
+  });
+}
+
+// Re-render the topbar bell after any billing transaction
+export function refreshBillingBell() {
+  const session = getSession();
+  if (session) renderTopbarUser(session);
 }
 
 /* ══════════════════════════════════════════════════════════════════════
@@ -257,6 +287,9 @@ function bootApp(session) {
   onRoute();
 
   window.addEventListener('hashchange', onRoute);
+
+  // Refresh the notification bell whenever billing data is saved
+  window.addEventListener('swh:billing-updated', () => renderTopbarUser(session));
 }
 
 /* ── ROUTER ────────────────────────────────────────────────────────── */
@@ -302,6 +335,7 @@ function renderHome() {
   const clinical = MODULES.filter(m => ['intake','screening','assessment','treatment','casemanagement','discharge','reporting'].includes(m.id));
   const ops      = MODULES.filter(m => ['scheduling','announcements'].includes(m.id));
   const admin    = MODULES.filter(m => ['hr','training','itsystems','settings'].includes(m.id));
+  const finance  = MODULES.filter(m => ['billing'].includes(m.id));
 
   const section = (title, mods) => `
     <div class="mg-section-label">${title}</div>
@@ -322,7 +356,8 @@ function renderHome() {
   document.getElementById('main-content').innerHTML = `
     ${section('Clinical Pathway — M1 to M7', clinical)}
     ${section('Operations', ops)}
-    ${section('Administration', admin)}`;
+    ${section('Administration', admin)}
+    ${section('Finance', finance)}`;
 
   document.querySelectorAll('.module-card').forEach(el => {
     el.addEventListener('click', () => navigate(el.dataset.route));
