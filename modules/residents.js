@@ -95,6 +95,34 @@ function filtered() {
 }
 
 /* ══════════════════════════════════════════════════════════════════════
+   BILLING INTEGRATION — reads swh_billing_v1 without circular import
+   ══════════════════════════════════════════════════════════════════════ */
+function getPatientBillingBadge(patientId) {
+  try {
+    const raw = localStorage.getItem('swh_billing_v1');
+    if (!raw) return '';
+    const data  = JSON.parse(raw);
+    const acc   = data.accounts && data.accounts[patientId];
+    if (!acc) return '<span class="rs-fin-badge rs-fin--none" title="No account">⚪ No account</span>';
+    const cfg = data.config || {};
+    const min = cfg.minDeposit || 10000;
+    const low = min * (cfg.lowThreshold || 0.30);
+    const bal = (acc.transactions || []).reduce((s, t) => {
+      return (t.type === 'deposit' || t.type === 'refund') ? s + Number(t.amount) : s - Number(t.amount);
+    }, 0);
+    if ((acc.transactions || []).length === 0)
+      return '<span class="rs-fin-badge rs-fin--none" title="No deposit on record">⚪ No deposit</span>';
+    if (bal <= 0)
+      return `<span class="rs-fin-badge rs-fin--danger" title="Balance depleted — treatment hold">🔴 Depleted</span>`;
+    if (bal < low)
+      return `<span class="rs-fin-badge rs-fin--warn" title="Balance critically low">🟡 Critical</span>`;
+    if (bal < min)
+      return `<span class="rs-fin-badge rs-fin--warn" title="Balance below minimum deposit">🟡 Low</span>`;
+    return `<span class="rs-fin-badge rs-fin--ok" title="Account in good standing">🟢 OK</span>`;
+  } catch { return ''; }
+}
+
+/* ══════════════════════════════════════════════════════════════════════
    VIEWS
    ══════════════════════════════════════════════════════════════════════ */
 
@@ -155,6 +183,7 @@ function renderList(container) {
               <th>Condition</th>
               <th>Admitted</th>
               <th>Status</th>
+              <th>Account</th>
               <th></th>
             </tr>
           </thead>
@@ -176,6 +205,7 @@ function renderList(container) {
                 <td>${r.condition}</td>
                 <td>${fmt(r.admissionDate)}</td>
                 <td><span class="rs-status-pill ${statusClass(r.status)}">${r.status}</span></td>
+                <td>${getPatientBillingBadge(r.id)}</td>
                 <td><button class="rs-view-btn" data-id="${r.id}">View →</button></td>
               </tr>
             `).join('')}
