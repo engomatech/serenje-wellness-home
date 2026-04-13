@@ -1,7 +1,7 @@
-export const id     = 'residents';
-export const name   = 'Residents';
-export const icon   = '👥';
-export const desc   = 'Resident profiles, admissions, discharges and next-of-kin records.';
+export const id     = 'intake';
+export const name   = 'Patient Intake';
+export const icon   = '📋';
+export const desc   = 'M1 — Patient registration, demographics, consent, referral source and presenting complaint.';
 export const status = 'live';
 export const badge  = null;
 

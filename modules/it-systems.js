@@ -1,4 +1,4 @@
-export const id     = 'it-systems';
+export const id     = 'itsystems';
 export const name   = 'IT & Systems';
 export const icon   = '💻';
 export const desc   = 'CRM access, support tickets, system health and digital infrastructure.';

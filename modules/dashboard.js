@@ -7,26 +7,28 @@ export const badge  = null;
 
 /* ── DATA (replace with real API calls later) ── */
 const STATS = [
-  { icon: '🛏️',  label: 'Residents Admitted',    value: '24',  sub: '2 discharges this week',   color: 'green' },
-  { icon: '👤',  label: 'Staff On Duty Today',   value: '12',  sub: '3 shifts remaining',        color: 'blue'  },
-  { icon: '📋',  label: 'New Admissions',         value: '3',   sub: 'This week',                 color: 'gold'  },
-  { icon: '⭐',  label: 'Care Satisfaction',      value: '98%', sub: 'Last 30 days',              color: 'green' },
+  { icon: '🛏️',  label: 'Residents in Programme', value: '24',  sub: '2 discharges this week',      color: 'green' },
+  { icon: '🔴',  label: 'High Relapse Risk',       value: '3',   sub: 'MDT review required',         color: 'red'   },
+  { icon: '🔍',  label: 'Screenings Pending',      value: '2',   sub: 'Awaiting clinician review',   color: 'gold'  },
+  { icon: '📋',  label: 'Treatment Plans Active',  value: '21',  sub: '3 due for MDT review',        color: 'blue'  },
 ];
 
 const ALERTS = [
-  { level: 'urgent', icon: '💊', title: 'Medication Due — Room A',       time: '08:30',  detail: '4 residents pending morning medications.' },
-  { level: 'warn',   icon: '🔄', title: 'Shift Handover in 30 min',      time: '08:45',  detail: 'Evening team arrives at 09:00. Ensure notes are updated.' },
-  { level: 'info',   icon: '📄', title: 'Incident Report Pending Review', time: 'Yesterday', detail: 'Report #IR-042 awaiting supervisor sign-off.' },
-  { level: 'info',   icon: '🎓', title: 'CPD Reminder — T. Phiri',       time: 'This week', detail: 'First Aid renewal due by 30 April.' },
+  { level: 'urgent', icon: '🔴', title: 'High Relapse Risk — R002, R004, R005',  time: 'Now',       detail: 'Weekly MDT relapse-risk scores flagged High. Treatment plan review required.' },
+  { level: 'urgent', icon: '💊', title: 'MAR Overdue — Morning Round, Room A',   time: '08:30',     detail: '4 residents pending medication administration sign-off.' },
+  { level: 'warn',   icon: '🔍', title: '2 Screenings Awaiting Clinician Review', time: 'Today',     detail: 'AUDIT and ASSIST results scored. Psychologist action required for escalation.' },
+  { level: 'warn',   icon: '📋', title: 'MDT Review Due — 3 Treatment Plans',    time: 'This week', detail: 'Plans for R001, R003, R007 are at weekly review checkpoint.' },
+  { level: 'info',   icon: '📄', title: 'Incident Report #IR-004 Unresolved',    time: 'Yesterday', detail: 'Hypoglycaemic episode — awaiting Clinical Director sign-off.' },
+  { level: 'info',   icon: '🚪', title: 'Discharge Planning — R006 at Midpoint', time: 'This week', detail: 'Social Worker to initiate discharge planning form for R006.' },
 ];
 
 const ACTIVITY = [
-  { icon: '✅', text: 'Care plan updated for Resident #12 — N. Banda',          time: '07:52' },
-  { icon: '🛏️', text: 'New admission logged — Room B, Bed 7',                  time: '07:30' },
-  { icon: '💊', text: 'Medication administered — Evening round, Room A',         time: '06:45' },
-  { icon: '📝', text: 'Shift handover notes submitted — J. Sakala',             time: '06:00' },
-  { icon: '📢', text: 'Announcement posted: "CRM System Goes Live — 15 April"', time: 'Yesterday' },
-  { icon: '👤', text: 'New staff record added — Maintenance Dept',              time: 'Yesterday' },
+  { icon: '🔍', text: 'AUDIT screening completed — R008, score 24 (Dependent). Escalated to Assessment.',  time: '08:15' },
+  { icon: '📝', text: 'SOAP note submitted — Individual counselling, R002 — N. Banda',                     time: '07:52' },
+  { icon: '💊', text: 'MAR signed off — Morning medications, Room A — T. Phiri',                           time: '07:30' },
+  { icon: '🧠', text: 'Comprehensive Assessment completed — R008, ASAM Level III recommended',             time: '07:10' },
+  { icon: '📋', text: 'Treatment plan updated — R003, trauma-informed intervention added',                 time: 'Yesterday' },
+  { icon: '🚪', text: 'Discharge summary generated — R006, planned completion 18 Apr 2026',               time: 'Yesterday' },
 ];
 
 const ON_DUTY = [

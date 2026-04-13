@@ -1,0 +1,397 @@
+SERENJE WELLNESS HOME
+Residential Rehabilitation & Mental Wellness Support, Lusaka, Zambia
+SUBSTANCE USE DISORDER
+Screening, Assessment, Treatment &
+Management System
+Technical Specification Document
+Version 1.0, April 2026
+Prepared by: Chilufya Musosha
+CONFIDENTIAL, FOR INTERNAL REVIEW
+# 1. Executive Summary
+Serenje Wellness Home is a residential rehabilitation and mental wellness facility located in Makeni, Lusaka, Zambia. The centre provides structured, holistic care for individuals overcoming drug and alcohol dependency or managing mental health challenges, operating under a multidisciplinary clinical model guided by a Clinical Director.
+This document defines the technical specification for a purpose-built Substance Use Disorder Screening, Assessment, Treatment, and Management (SATM) System. The platform will digitise and standardise all clinical workflows, from initial patient intake and validated screening, through to comprehensive assessment, personalised treatment planning, progress tracking, discharge, and aftercare follow-up.
+The system is aligned with internationally recognised clinical frameworks, including the WHO/UNODC International Standards for the Treatment of Drug Use Disorders (2020) and SAMHSA's Screening, Brief Intervention, and Referral to Treatment (SBIRT) model. It incorporates evidence-based screening instruments (ASSIST, AUDIT, DAST-10, CAGE) and structured assessment protocols that screen for co-occurring mental health disorders, a critical requirement given that between 33% and 60% of people seeking substance use treatment also present with a mood or anxiety disorder.
+The SATM System will serve all clinical, administrative, and monitoring roles within Serenje Wellness Home, providing a unified digital platform for case management, weekly multidisciplinary team reviews, relapse-risk assessment, and reporting to regulatory bodies, including the Ministry of Health (MoH) and the Health Professions Council of Zambia (HPCZ).
+Strategic Objective: To replace paper-based clinical records with a secure, role-based digital system that improves diagnostic accuracy, reduces symptom misattribution, enables real-time case monitoring, and supports evidence-based, person-centred treatment at Serenje Wellness Home.
+# 2. System Overview
+## 2.1 Purpose and Scope
+The SATM System is a web-based clinical information platform designed exclusively for the operational, clinical, and administrative needs of Serenje Wellness Home. It covers the full continuum of care: from the moment a prospective resident makes first contact, through intake, clinical screening, comprehensive assessment, treatment planning, daily monitoring, relapse-risk evaluation, discharge, and structured aftercare.
+## 2.2 Key Objectives
+Standardise clinical intake and screening using validated, evidence-based instruments.
+Enable accurate dual-diagnosis assessment identifying co-occurring mental health disorders alongside substance use disorders.
+Support personalised, multidisciplinary treatment planning aligned to WHO standards.
+Facilitate real-time case management and progress tracking across the daily programme schedule.
+Automate weekly MDT case reviews, relapse-risk flags, and clinical alerts.
+Generate regulatory-compliant reports for MoH, HPCZ, and internal governance.
+Protect patient confidentiality through role-based access control and audit trails.
+## 2.3 System Modules
+The SATM System is structured around seven integrated modules:
+Module
+Name
+Primary Function
+M1
+Patient Registration & Intake
+Demographics, consent, referral source, presenting complaint, initial contact logging
+M2
+Screening
+Evidence-based screening instruments (AUDIT, ASSIST, DAST-10, CAGE, PHQ-9, GAD-7)
+M3
+Comprehensive Assessment
+Biopsychosocial assessment, severity rating, trauma history, co-occurring disorder identification
+M4
+Treatment Planning
+Personalised care plan, goals, interventions, medication, MDT assignments
+M5
+Case Management & Progress
+Daily monitoring, therapy session notes, relapse-risk assessment, incident logging
+M6
+Discharge & Aftercare
+Discharge summaries, aftercare plans, follow-up scheduling, alumni tracking
+M7
+Reporting & M&E
+MoH/HPCZ reports, clinical dashboards, outcome metrics, staff supervision logs
+# 3. Clinical & Regulatory Framework
+## 3.1 Governing Standards
+The SATM System is designed to operationalise the following internationally recognised standards:
+WHO/UNODC International Standards for the Treatment of Drug Use Disorders (Revised Edition, 2020): The system aligns with all seven principles, availability, ethical standards, evidence-based practice, special population needs, clinical governance, integrated treatment, and monitoring and evaluation.
+Treatment must match the specific needs of individuals at different stages and severities of disorder (WHO Principle 4).
+Screening and brief interventions, diagnostic assessment, and outpatient psychosocial treatment are listed as essential treatment services (WHO Standard 1.2).
+Patient data must be strictly confidential, and informed consent obtained before treatment begins (WHO Standard 2.2 and 2.3).
+SAMHSA SBIRT Model (Screening, Brief Intervention, Referral to Treatment): The three-phase SBIRT framework structures the system's clinical pathway. The screening module uses brief validated tools to evaluate risk; the assessment module supports in-depth clinical evaluation; and the treatment planning module facilitates referral to the appropriate level of care within the residential programme.
+ICD-11 Classification: Diagnostic coding follows the 11th revision of the International Classification of Diseases, covering harmful patterns of drug use and drug dependence, distinguishing impaired control over substance use, escalating priority of drug use, and physiological features of dependence.
+Zambia Health Professions Act (2009) and Ministry of Health Guidelines: The system supports mandatory reporting to MoH and HPCZ, including monthly activity reports and case-level statistical submissions where required.
+## 3.2 Clinical Care Model at Serenje Wellness Home
+The centre operates a residential model with a structured daily programme, multidisciplinary team (MDT) reviews, and community and family engagement. The SATM system digitises these existing workflows:
+Care Component
+System Support
+Daily Programme (06:00–20:00)
+Daily schedule adherence tracking, session attendance logging, incident reporting
+Group Therapy (08:00)
+Session notes, group composition, therapeutic goals, facilitator records
+Individual Counselling (13:00)
+One-to-one session records, SOAP notes, progress against treatment goals
+Skills Training (10:30)
+Skills module tracking, competency progress, psychoeducation delivery logs
+Support Group / Meditation (18:00)
+Participation logs, peer support notes
+Weekly MDT Review
+Case review workflow, relapse-risk scoring, treatment plan amendments, staff supervision
+Food & Nutrition
+Hydration monitoring during detox, dietary accommodation flags
+Community & Family Engagement
+Family therapy scheduling, family session notes, community referral management
+Monthly MoH/HPCZ Reporting
+Auto-generated compliance reports, aggregated anonymised statistics
+## 3.3 Co-occurring Disorders, Clinical Rationale
+Research consistently shows that between 33% and 60% of individuals seeking substance use treatment also have a co-occurring mood or anxiety disorder. Additionally, bipolar disorder is the most common dual diagnosis among patients with SUD, with an estimated 22%–59% of individuals with bipolar disorder developing SUD in their lifetimes. The system therefore mandates screening for co-occurring mental health conditions as part of every comprehensive assessment workflow, not merely as an optional step.
+The system integrates the following co-occurring disorder screening instruments alongside primary SUD tools:
+PHQ-9: Patient Health Questionnaire for depression severity screening.
+GAD-7: Generalised Anxiety Disorder screening.
+MDQ: Mood Disorder Questionnaire for bipolar screening.
+PC-PTSD-5: Primary Care PTSD Screen for trauma-related presentations.
+# 4. User Roles & Access Control
+Access to the SATM System is governed by role-based access control (RBAC). Roles are aligned to the organisational structure of Serenje Wellness Home as defined by its clinical governance framework.
+Role
+Mapped Position
+System Permissions
+Super Administrator
+IT / Operations Lead
+Full system access; user management; system configuration; audit log review
+Clinical Director
+Clinical Director
+All clinical records; treatment plan approval; MDT review oversight; all reports; staff supervision logs
+Psychologist
+Clinical Services, Psychologist
+Patient records; screening results; assessment forms; session notes; treatment plans; relapse-risk flags
+Social Worker
+Clinical Services, Social Worker
+Intake records; family engagement logs; community referral management; discharge planning
+Psychiatrist
+Clinical Services, Psychiatrist
+Full clinical record; medication prescription and management; dual-diagnosis assessment; MAT records
+Medical Practitioner
+Clinical Services, Medical Practitioner
+Medical history; physical examination records; lab results; detox monitoring; medical referrals
+Counsellor / Therapist
+Clinical Services (General)
+Session notes; group therapy logs; daily progress notes; relapse-risk entries
+Finance Officer
+Admin, Finance
+Billing records; payment status; no clinical data access
+HR Officer
+Admin, HR
+Staff records; training logs; no patient clinical data access
+Outreach Officer
+Admin, Outreach
+Referral intake; community engagement logs; anonymised aggregate stats
+M&E Officer
+Operations, M&E
+Reporting dashboards; anonymised aggregate data; outcome metrics; no individual identifiable records
+Security Officer
+Operations, Security
+Incident log (non-clinical); access log viewing only
+# 5. Module Specifications
+## 5.1 Module 1, Patient Registration & Intake
+This module captures all pre-admission and admission-day information, establishing the patient record that all subsequent modules draw from.
+### 5.1.1 Data Fields
+Personal Information: Full name, date of birth, gender, national ID number, contact details, next-of-kin information.
+Referral Details: Referral source (self, family, GP, NGO, court order, faith institution, other), referral date, referring clinician/organisation.
+Presenting Complaint: Primary substance(s) of concern, duration of use, patient's stated reason for seeking treatment.
+Consent Forms: Informed consent to treatment; consent to data processing and storage; confidentiality acknowledgement; right to withdraw.
+Emergency Contacts: Minimum two emergency contacts with relationship type.
+Insurance/Funding: Payment method, insurance details, sponsoring organisation if applicable.
+Initial Triage: Preliminary risk flag (urgent/non-urgent) assigned by intake clinician.
+### 5.1.2 Workflow
+Upon submission, the system automatically generates a unique Patient ID and triggers the Module 2 (Screening) workflow, alerting the assigned clinician. A digital consent audit trail is maintained with timestamp and clinician signatory.
+## 5.2 Module 2, Screening
+The Screening module administers validated, standardised instruments to identify the presence and severity of substance use, and to flag individuals requiring comprehensive assessment. Screening follows the SBIRT model's first phase.
+### 5.2.1 Screening Instruments Integrated
+Instrument
+Full Name
+Target
+Output
+AUDIT
+Alcohol Use Disorders Identification Test
+Alcohol (all adults)
+Score 0–40; Low / Hazardous / Harmful / Dependent
+CAGE
+Cut-Annoyed-Guilty-Eye-opener
+Alcohol (quick 4-item screen)
+Score 0–4; ≥2 = significant concern
+DAST-10
+Drug Abuse Screening Test
+Non-alcohol drug use
+Score 0–10; severity band + action recommendation
+ASSIST
+Alcohol, Smoking & Substance Involvement Screening Test
+All substances (multi-drug)
+Per-substance risk score; Low / Moderate / High
+PHQ-9
+Patient Health Questionnaire-9
+Depression
+Score 0–27; severity classification
+GAD-7
+Generalised Anxiety Disorder-7
+Anxiety
+Score 0–21; severity classification
+MDQ
+Mood Disorder Questionnaire
+Bipolar Disorder
+Positive/Negative screen + severity
+PC-PTSD-5
+Primary Care PTSD Screen
+Trauma / PTSD
+Score 0–5; ≥3 = further evaluation indicated
+CAGE-AID
+CAGE Adapted to Include Drugs
+Alcohol + Drugs combined
+Score 0–4; ≥2 = further assessment indicated
+### 5.2.2 Screening Workflow
+Instruments are selected by the administering clinician based on presenting complaint, then rendered as digital questionnaires.
+The system automatically scores each instrument upon completion and classifies the result.
+Results trigger colour-coded risk flags: Green (low risk), Amber (moderate, brief intervention indicated), Red (high risk, comprehensive assessment required).
+Brief Intervention (BI) prompts are presented to the clinician for Amber-flagged patients, with structured motivational interviewing talking points.
+Red-flagged patients are automatically escalated to Module 3 (Comprehensive Assessment) with an alert sent to the assigned Psychologist/Psychiatrist.
+All instrument results are stored with timestamp, administering clinician, and patient ID for full auditability.
+## 5.3 Module 3, Comprehensive Assessment
+The Comprehensive Assessment module enables clinicians to conduct a structured, in-depth biopsychosocial evaluation. This goes beyond screening to establish a full clinical picture, identifying all co-occurring conditions, trauma history, severity of dependence, and readiness to change, all essential inputs to the treatment plan.
+### 5.3.1 Assessment Domains
+Domain
+Data Collected
+Substance Use History
+All substances used (current and historical); age of first use; route of administration; frequency and quantity; periods of abstinence; previous treatment attempts and outcomes; overdose history
+Medical History
+Current physical health conditions; medications; allergies; past hospitalisations; blood-borne infection status (HIV, HCV, TB if disclosed); nutritional status; detoxification history and complications
+Mental Health History
+Previous psychiatric diagnoses; current mental health symptoms; suicidal ideation and self-harm history; psychiatric hospitalisations; current and past medications for mental health
+Trauma History
+Adverse childhood experiences (ACEs); history of physical, sexual, or emotional abuse; significant losses; domestic violence; PTSD symptoms (using PC-PTSD-5)
+Social & Family History
+Family structure: family substance use history; housing situation; employment status; financial situation; social support network; legal history
+Cognitive & Psychological
+Cognitive functioning assessment; insight into disorder; readiness to change (Stages of Change / URICA scale); coping strategies; motivation levels
+Spiritual & Cultural
+Religious/spiritual beliefs relevant to recovery; cultural considerations; patient's own recovery goals and values
+Severity Rating
+ASAM (American Society of Addiction Medicine) six-dimension severity rating used to determine appropriate level of care and intensity of treatment
+### 5.3.2 Assessment Output
+A structured Assessment Summary Report is automatically generated, consolidating all domain findings.
+Co-occurring disorder flags are highlighted for Psychiatrist review.
+ASAM severity scores are used to generate a recommended Level of Care placement within the residential programme.
+The report is shared with the MDT and stored in the patient's clinical record for treatment planning.
+## 5.4 Module 4, Treatment Planning
+This module enables the MDT to collaboratively develop, review, and update a personalised treatment plan for each resident, drawing on all assessment data. The plan is patient-centred, goal-oriented, and time-bound.
+### 5.4.1 Treatment Plan Components
+Primary Diagnosis: ICD-11 coded substance uses disorder(s) with severity rating.
+Secondary Diagnoses: ICD-11 coded co-occurring mental health or physical health conditions.
+Treatment Goals: Short-term (weekly), medium-term (monthly), and long-term (programme completion) goals, documented in SMART format.
+Assigned Interventions: Group therapy (frequency/focus), individual counselling (frequency/therapist), skills training modules, medication-assisted treatment (MAT) if prescribed, family therapy, spiritual care.
+Medication Plan: Prescribed medications, dosage, frequency, prescribing clinician, review dates, MAT protocol if applicable.
+Trauma-Informed Care Notes: Specific accommodations or approaches required based on trauma history.
+MDT Roles: Assigned responsible clinician per domain (Psychologist, Psychiatrist, Social Worker, Medical Practitioner, Counsellor).
+Review Schedule: Weekly MDT review dates pre-populated; treatment plan version history maintained.
+### 5.4.2 MDT Collaboration
+The system supports asynchronous and synchronous MDT collaboration. Each team member can add domain-specific input to the treatment plan. The Clinical Director reviews and approves the final plan. A digital signature and timestamp are recorded for each approval action, creating a full audit trail consistent with clinical governance requirements.
+## 5.5 Module 5, Case Management & Progress Monitoring
+This module supports the day-to-day management of each resident's care, capturing all interactions, progress notes, and clinical observations across the structured daily schedule.
+### 5.5.1 Daily Progress Tracking
+Session Attendance: Automated daily attendance log mapped to the programme schedule (Group Therapy, Skills Training, Individual Counselling, Support Group, Recreation).
+Session Notes: Structured SOAP (Subjective, Objective, Assessment, Plan) note templates for all individual and group sessions.
+Medication Administration Record (MAR): Digital MAR for all prescribed medications, with clinician sign-off per administration.
+Vital Signs & Physical Monitoring: Daily vital signs entry (temperature, BP, pulse); hydration monitoring flag during detox.
+Hygiene & Room Inspection Log: Daily compliance record for the 06:30 hygiene and room inspection (assigned to Operations staff, non-clinical record).
+### 5.5.2 Relapse Risk Assessment
+Weekly relapse-risk assessments are a formal component of MDT review. The system provides a structured relapse-risk scoring tool covering:
+Cravings intensity (self-reported, 0–10 scale using the Urge to Use Scale).
+Recent behavioural observations (flagged by any clinical staff member).
+Trigger identification (environmental, emotional, social).
+Support network engagement level.
+Treatment plan adherence score.
+A composite Relapse Risk Score is calculated (Low / Moderate / High) and presented to the MDT. High scores generate an automatic alert to the Clinical Director and trigger a treatment plan review prompt.
+### 5.5.3 Incident Management
+Incident reports can be raised by any authorised system user (clinical or operational).
+Incident categories: Behavioural incident, medical emergency, property damage, safeguarding concern, security breach.
+Each incident triggers a notification to the Clinical Director and, where applicable, the Security Officer.
+Incident records are linked to the relevant patient record and included in MDT review.
+## 5.6 Module 6, Discharge & Aftercare Planning
+This module manages the transition out of the residential programme, ensuring continuity of care, structured aftercare, and long-term recovery support.
+### 5.6.1 Discharge Planning
+Discharge planning begins no later than the midpoint of the resident's programme, with a dedicated Discharge Planning form initiated by the Social Worker.
+Discharge Summary: Auto populated from treatment records; includes diagnosis, treatment received, medications on discharge, progress against goals, recommendations.
+Discharge Type: Planned completion, voluntary early discharge, medical discharge, administrative discharge, each with distinct documentation workflow.
+Referral Letters: System-generated referral letters to outpatient mental health services, community support organisations, churches, NGOs, and health facilities.
+### 5.6.2 Aftercare Plan
+Outpatient follow-up schedule (30-day, 90-day, 180-day, 12-month check-ins).
+Community support linkages: faith institutions, NA/AA groups, NGO partners.
+Relapse prevention plan (documented coping strategies, triggers, emergency contacts).
+Family engagement commitments (follow-up family therapy sessions if applicable).
+### 5.6.3 Alumni Tracking
+Alumni are tracked as a distinct record type in the system. Follow-up contact outcomes (reached/not reached, reported status, re-admission enquiry) are recorded at each scheduled touchpoint. Aggregate alumni outcomes are included in M&E reporting.
+## 5.7 Module 7, Reporting & Monitoring and Evaluation
+This module provides dashboards, automated reports, and data export capabilities to support clinical governance, staff supervision, and regulatory reporting obligations.
+### 5.7.1 Built-in Reports
+Monthly Activity Report: Admissions, discharges, current census, substance type breakdown, gender and age distribution, formatted for MoH/HPCZ submission.
+Clinical Outcomes Report: Treatment completion rates, relapse rates, follow-up contact success, readmission rates.
+MDT Review Summary: Weekly case review outputs, treatment plan amendments, relapse-risk trends.
+Staff Supervision Log: Supervision sessions recorded, training completed, CPD hours.
+Incident Summary Report: Incident frequency by category, resolution status, trend analysis.
+Screening & Assessment Analytics: Substance prevalence, co-occurring disorder rates, ASAM severity distribution across the resident population.
+### 5.7.2 Dashboard Views
+Clinical Director Dashboard: Occupancy, current risk flags, pending MDT reviews, outstanding approvals, compliance deadlines.
+M&E Dashboard: Outcome trends, programme effectiveness metrics, comparative period analysis.
+Clinician Dashboard: Personal caseload, upcoming sessions, pending notes, relapse-risk alerts.
+# 6. Technical Architecture
+## 6.1 Technology Stack
+Layer
+Technology
+Rationale
+Frontend (Web)
+React.js + Vite
+Fast, component-based SPA; familiar to Chilufya Musosha’ development stack
+Backend / API
+Node.js + Express.js
+RESTful API; consistent with existing Chilufya Musosha platforms
+Database
+PostgreSQL
+Relational integrity for clinical records; strong ACID compliance
+Session / Cache
+Redis
+Session management; real-time notification queuing
+Authentication
+JWT + TOTP 2FA
+Secure token-based auth with two-factor for clinical staff
+File Storage
+Local VPS (encrypted)
+Consent documents, discharge letters, report PDFs
+Web Server
+Nginx + SSL/TLS
+Reverse proxy: HTTPS enforced; rate limiting
+Hosting
+InterServer KVM VPS (Ubuntu)
+Cost-effective; full server control; data sovereignty
+Backup
+Daily encrypted snapshots
+Off-site backup; 30-day retention minimum
+## 6.2 Security Requirements
+All data in transit encrypted via TLS 1.2+; all data at rest encrypted via AES-256.
+Role-based access control enforced at both the API and UI layer.
+Full audit trail: every record creation, update, view, and deletion is logged with user ID and timestamp.
+Fail2Ban intrusion detection is active at the server level; Helmet.js security headers are enforced.
+Password policy: minimum 12 characters, complexity enforced, 90-day rotation for clinical roles.
+Session timeout: 15 minutes of inactivity for clinical users; 30 minutes for administrative users.
+Patient identifiable data is never included in system log files or error messages.
+## 6.3 Data Privacy & Compliance
+The system is designed to comply with Zambia's Electronic Communications and Transactions Act and applicable health data protection obligations under the Health Professions Act. Patient data is stored exclusively within Zambia. Consent to data processing is captured digitally at intake and referenced throughout the patient journey. Data minimisation principles apply only to data necessary for clinical care, reporting, and governance.
+# 7. Implementation Roadmap
+The SATM System will be delivered in four phases over an estimated 24 weeks from project kick-off.
+Phase
+Name
+Deliverables
+Duration
+1
+Foundation & Setup
+Server provisioning; database schema design; authentication system; user management; core patient registration (M1)
+Weeks 1–4
+2
+Screening & Assessment
+All screening instruments (M2) with autoscoring; comprehensive assessment module (M3); assessment summary report generation
+Weeks 5–10
+3
+Treatment & Case Management
+Treatment planning module (M4); case management & daily progress (M5); medication administration record; relapse-risk tool; incident management
+Weeks 11–18
+4
+Discharge, Reporting & Go-live
+Discharge & aftercare module (M6); all reports and dashboards (M7); UAT with clinical staff; security hardening; staff training; go-live
+Weeks 19–24
+## 7.1 Training & Change Management
+A dedicated training programme will be delivered to all system users in Week 22–23, segmented by role.
+Clinical staff training will cover patient registration, administering screening instruments digitally, SOAP note entry, treatment plan collaboration, and relapse-risk assessment workflow.
+Administrative staff training will cover intake registration, consent management, scheduling, and report generation.
+Quick-reference user guides and in-system help tooltips will be provided for all modules.
+A system administrator will be designated within the operations (IT) team for first-level support.
+# 8. Non-Functional Requirements
+Requirement
+Specification
+Availability
+99.5% uptime target; planned maintenance windows on Sunday mornings between 01:00–04:00 CAT
+Performance
+Page load < 2 seconds on standard broadband; form submission response < 1 second
+Browser Support
+Chrome (latest), Firefox (latest), Edge (latest); mobile-responsive for tablet access
+Concurrent Users
+Support minimum 20 simultaneous users without degradation
+Scalability
+Architecture supports expansion to additional Serenje Wellness Home sites without re-architecture
+Offline Capability
+Critical daily forms (attendance, vitals, session notes) accessible with local caching if internet is temporarily unavailable; sync on reconnect
+Data Retention
+Active patient records: indefinite retention. Discharged patient records: minimum 10 years per health records best practice. Anonymised aggregate data: indefinite.
+Audit Trail
+All user actions on patient records logged and immutable; exportable for regulatory review
+Accessibility
+WCAG 2.1 AA compliance for users with visual or motor impairments
+# 9. Document Control & Approval
+This document requires review and approval from the following stakeholders before development proceeds to Phase 1.
+Name / Role
+Organisation
+Signature
+Date
+Clinical Director, Serenje Wellness Home
+Serenje Wellness Home
+Head of Operations, Serenje Wellness Home
+Serenje Wellness Home
+Chilufya Musosha, Innovation Lead
+Chilufya Musosha
+Development Lead
+Chilufya Musosha
+Document Version History
+Version
+Date
+Author
+Change Description
+1.0
+April 2026
+Chilufya Musosha, Chilufya Musosha
+Initial version for Clinical Director review
+CONFIDENTIAL, Serenje Wellness Home & Chilufya Musosha, April 2026

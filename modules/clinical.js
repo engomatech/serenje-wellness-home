@@ -1,7 +1,7 @@
-export const id     = 'clinical';
-export const name   = 'Clinical Care';
+export const id     = 'casemanagement';
+export const name   = 'Case Management';
 export const icon   = '🏥';
-export const desc   = 'Care plans, medication logs, wound charts and incident reports.';
+export const desc   = 'M5 — Daily monitoring, SOAP notes, MAR, relapse-risk assessment and incident management.';
 export const status = 'live';
 export const badge  = null;
 

@@ -1,7 +1,7 @@
-export const id     = 'reports';
-export const name   = 'Reports';
+export const id     = 'reporting';
+export const name   = 'Reports & M&E';
 export const icon   = '📊';
-export const desc   = 'Occupancy, financial, clinical and compliance reports with export.';
+export const desc   = 'M7 — MoH/HPCZ compliance reports, clinical dashboards, outcome metrics and M&E.';
 export const status = 'planned';
 export const badge  = null;
 
